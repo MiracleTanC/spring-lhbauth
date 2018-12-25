@@ -5,7 +5,7 @@ response_type=code
 &client_id=lvhaibao
 &redirect_uri=http://baidu.com
 &state=test
-&scope=all
+&scope=app
 
 获取token地址：
 
@@ -15,4 +15,4 @@ grant_type=authorization_code
 &client_secret=123456
 &redirect_uri=http://baidu.com
 &code=HTJUB8
-&scope=all
+&scope=app

@@ -86,7 +86,7 @@ public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAd
                         //支持的认证方式
                         .authorizedGrantTypes("refresh_token", "authorization_code", "password").autoApprove(false)
                         //授权域
-                        .scopes("all");
+                        .scopes("app","write");
             }
         }
 
