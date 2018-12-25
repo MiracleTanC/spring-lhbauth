@@ -7,6 +7,9 @@ spring:
   http:
       encoding:
         force: true
+  redis:
+     host: v.sunniwell.net
+     password: sunniwell
   datasource:
       druid:
           url: jdbc:mysql://127.0.0.1:3306/lhbauth?userUnicode=true&characterEncoding=utf-8&serverTimezone=UTC

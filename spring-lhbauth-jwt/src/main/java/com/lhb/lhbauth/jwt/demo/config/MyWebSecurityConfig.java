@@ -35,7 +35,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //表单登录
                 .formLogin()
                 //允许访问
-                .and().authorizeRequests().antMatchers("/oauth/**,", "hello").permitAll().anyRequest().authenticated()
+                .and().authorizeRequests().antMatchers("/user/hello").permitAll().anyRequest().authenticated()
                 //禁用跨站伪造
                 .and().csrf().disable();
 
