@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>logback</contextName>
-    <property name="log.path" value="./spring-myauth-demo/log/spring-myauth-demo.log"/>
+    <property name="log.path" value="./spring-lhbauth-jwt/log/spring-lhbauth-jwt.log"/>
     <!--输出到控制台-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -18,7 +18,7 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志文件 输出的文件名的格式 以及归档的分隔方式 -->
             <!--<fileNamePattern>./logs/spring-myauth-demo.%d{yyyy-MM-dd_HH}.%i.log</fileNamePattern>-->
-            <fileNamePattern>./spring-myauth-demo/logs/spring-myauth-demo.%d{yyyy-MM-dd_HH}.%i.log</fileNamePattern>
+            <fileNamePattern>./spring-lhbauth-jwt/logs/spring-lhbauth-jwt.%d{yyyy-MM-dd_HH}.%i.log</fileNamePattern>
             <!--日志文件保留天数-->
             <maxHistory>1</maxHistory>
             <!--当文件大于20KB时，删除旧日志-->
