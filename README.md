@@ -4,12 +4,14 @@
 
 基于OAuth2和JWT实现认证授权
 
-#### 技术栈
+
+#### 涉及到的技术框架
 
 1. spring boot
 2. spring security
 3. spring oauth2
 4. spring social
+5. spring data jpa
 
 #### 实现功能
 
