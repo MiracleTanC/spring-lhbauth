@@ -2,7 +2,8 @@
 SQLyog Professional v12.08 (64 bit)
 MySQL - 5.6.39 : Database - lhbauth
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -21,11 +22,11 @@ USE `lhbauth`;
 DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
-  `id` bigint(20) NOT NULL COMMENT '自增长ID',
+  `uin` bigint(20) NOT NULL COMMENT '自增长ID',
   `username` varchar(16) DEFAULT NULL COMMENT '用户名',
   `password` varchar(16) DEFAULT NULL COMMENT '密码',
   `mobile` varchar(16) DEFAULT NULL COMMENT '手机号',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`uin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
