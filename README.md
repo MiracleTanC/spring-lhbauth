@@ -1,17 +1,39 @@
 # spring-lhbauth
 
 #### 介绍
+
 基于OAuth2和JWT实现认证授权
+
+#### 技术栈
+
+1. spring boot
+2. spring security
+3. spring oauth2
+4. spring social
+
+#### 实现功能
+
+1. 唯一ID和密码登录
+2. 手机号和验证码登录
+3. QQ微信社交登录
+4. oauth2授权码模式登录
+5. oauth2密码模式登录
+6. 各种登录返回基于JWT的token
+7. 绑定解绑社交账号
+8. 退出
+
 
 #### 软件架构
 软件架构说明
 
 
-#### 安装教程
+#### 系统环境
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. JDK1.8
+2. mysql5.6 
+3. redis 
+4. idea2017.2
+5. Restlet Client
 
 #### 使用说明
 
