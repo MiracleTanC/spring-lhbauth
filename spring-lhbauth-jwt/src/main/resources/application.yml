@@ -31,11 +31,20 @@ spring:
           filters: stat,wall,log4j
           connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
+
+  thymeleaf:
+      prefix: classpath:/page/
+      suffix: .html
+      cache: false
+
+
+
 system:
 #客户端配置
   client:
     clients[0]:
       clientId: lvhaibao
       clientSecret: 123456
-
-
+    clients[1]:
+      clientId: lhb
+      clientSecret: 123456
