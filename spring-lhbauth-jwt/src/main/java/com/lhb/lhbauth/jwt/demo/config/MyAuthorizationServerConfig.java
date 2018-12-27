@@ -1,5 +1,6 @@
 package com.lhb.lhbauth.jwt.demo.config;
 
+import com.lhb.lhbauth.jwt.demo.model.UserModel;
 import com.lhb.lhbauth.jwt.demo.properties.ClientLoadProperties;
 import com.lhb.lhbauth.jwt.demo.properties.ClientProperties;
 import com.lhb.lhbauth.jwt.demo.service.MyUserDetailsServiceImpl;
@@ -10,16 +11,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.builders.InMemoryClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -108,7 +115,37 @@ public class MyAuthorizationServerConfig extends AuthorizationServerConfigurerAd
                 // refresh_token
                 .reuseRefreshTokens(false)
                 //指定token存储位置
-                .tokenStore(tokenStore());
+                .tokenStore(tokenStore())
+                // 配置JwtAccessToken转换器
+                .accessTokenConverter(accessTokenConverter());
+    }
+
+    /**
+     * 定义jwt的生成方式
+     *
+     * @return JwtAccessTokenConverter
+     */
+    @Bean
+    public JwtAccessTokenConverter accessTokenConverter() {
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter() {
+            @Override
+            public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
+                final Map<String, Object> additionalInformation = new HashMap<>();
+                UserModel userModel = (UserModel) authentication.getUserAuthentication().getPrincipal();
+                //把用户的主键uin放进去
+                additionalInformation.put("uin", userModel.getUin());
+                ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInformation);
+                return super.enhance(accessToken, authentication);
+            }
+        };
+        //非对称加密，但jwt长度过长
+//        KeyPair keyPair = new KeyStoreKeyFactory(new ClassPathResource("kevin_key.jks"), "123456".toCharArray())
+//                .getKeyPair("kevin_key");
+//        converter.setKeyPair(keyPair);
+//        return converter;
+        //对称加密
+        converter.setSigningKey("123");
+        return converter;
     }
 
 
