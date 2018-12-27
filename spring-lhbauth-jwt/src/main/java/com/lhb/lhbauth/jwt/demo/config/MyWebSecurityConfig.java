@@ -45,7 +45,9 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 FromLoginConstant.LOGIN_PROCESSING_URL,
                 FromLoginConstant.LOGIN_PAGE,
                 securityProperties.getOauthLogin().getOauthLogin(),
-                securityProperties.getOauthLogin().getOauthGrant()).permitAll().anyRequest().authenticated()
+                securityProperties.getOauthLogin().getOauthGrant(),
+                "/myLogout")
+                .permitAll().anyRequest().authenticated()
                 //禁用跨站伪造
                 .and().csrf().disable();
 

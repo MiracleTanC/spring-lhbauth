@@ -12,8 +12,8 @@ public enum SWCodeEnum {
     CODE_UNKNOWN(-3, "未知错误"),
     CODE_REDIS_ERROR(-4, "存储redis错误"),
     CODE_CPBEAN_ERROR(-5, "复制bean失败"),
-    CODE_PARAM_ERROR(460, "请求参数错误");
-
+    CODE_PARAM_ERROR(460, "请求参数错误"),
+    CODE_20004(20004,"退出失败，不存在该token");
     private int code;
     private String msg;
 
