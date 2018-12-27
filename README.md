@@ -38,5 +38,5 @@
 1. [实现授权码模式登录和密码模式登录的spring oauth2服务](https://blog.csdn.net/baidu_34389984/article/details/85249733 "With a Title")。
 2. [oauth2自定义登录和授权页面](https://blog.csdn.net/baidu_34389984/article/details/85269366)。
 3. [oauth2+JWT实现oauth2服务](https://blog.csdn.net/baidu_34389984/article/details/85273757)。
-
+4. [oauth2退出功能实现](https://blog.csdn.net/baidu_34389984/article/details/85274912)。
 
