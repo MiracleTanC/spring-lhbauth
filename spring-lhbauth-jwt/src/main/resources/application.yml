@@ -49,3 +49,6 @@ system:
     clients[1]:
       clientId: lhb
       clientSecret: 123456
+    clients[2]:
+      clientId: app
+      clientSecret: app
