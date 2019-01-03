@@ -2,6 +2,7 @@ package com.lhb.lhbauth.jwt.demo.properties;
 
 
 import com.lhb.lhbauth.jwt.demo.authentication.mobile.ValidateCodeProperties;
+import com.lhb.lhbauth.jwt.demo.authentication.social.SocialProperties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -18,5 +19,7 @@ public class SecurityProperties {
     private OauthPageProperties oauthLogin = new OauthPageProperties();
 
     private ValidateCodeProperties code = new ValidateCodeProperties();
+
+    private SocialProperties social = new SocialProperties();
 
 }

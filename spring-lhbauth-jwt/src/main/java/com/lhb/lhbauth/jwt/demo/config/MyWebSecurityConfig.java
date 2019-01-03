@@ -14,6 +14,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.social.security.SpringSocialConfigurer;
+
+import javax.sql.DataSource;
 
 /**
  * @author lvhaibao
@@ -29,7 +34,10 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     private VcodeManager vcodeManager;
     @Autowired
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
-
+    @Autowired
+    private SpringSocialConfigurer mySocialSecurityConfig;
+    @Autowired
+    private DataSource dataSource;
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -40,6 +48,23 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
 //    public AuthenticationManager authenticationManagerBean() throws Exception {
 //        return super.authenticationManagerBean();
 //    }
+
+
+    /**
+     * 生成记得我的token
+     *
+     * @return
+     */
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        //使用jdbc来存储
+        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        //设置数据源
+        tokenRepository.setDataSource(dataSource);
+        //当为true的时候就会自动创建表
+        //tokenRepository.setCreateTableOnStartup(true);
+        return tokenRepository;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -64,7 +89,9 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //禁用跨站伪造
                 .and().csrf().disable()
                 //短信验证码配置
-                .apply(smsCodeAuthenticationSecurityConfig);
+                .apply(smsCodeAuthenticationSecurityConfig)
+                //qq登录
+                .and().apply(mySocialSecurityConfig);
 
     }
 

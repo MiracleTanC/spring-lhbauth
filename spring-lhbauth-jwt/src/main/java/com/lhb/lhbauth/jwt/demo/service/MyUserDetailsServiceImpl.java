@@ -12,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.social.security.SocialUser;
+import org.springframework.social.security.SocialUserDetails;
+import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -23,7 +26,7 @@ import javax.annotation.Resource;
  */
 @Service
 @Slf4j
-public class MyUserDetailsServiceImpl implements UserDetailsService {
+public class MyUserDetailsServiceImpl implements UserDetailsService,SocialUserDetailsService {
 
     @Resource
     private UserDao userDao;
@@ -49,6 +52,18 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 
         log.info("该用户数据库密码为==" + password);
         return new UserModel(userModel.getUin(), userModel.getUsername(), password, userModel.getMobile());
+
+    }
+
+    @Override
+    public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
+        log.info("登录用户名----->"+userId);
+
+        //数据库取到的密码，后面返回的是用户用户哪些权限
+        //return new User(username, "123456", AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+        String password = passwordEncoder.encode("123456");
+        log.info("数据库得到的密码为=="+password);
+        return new SocialUser(userId ,password,true,true,true,true, AuthorityUtils.commaSeparatedStringToAuthorityList("admin,ROLE_USER"));
 
     }
 
