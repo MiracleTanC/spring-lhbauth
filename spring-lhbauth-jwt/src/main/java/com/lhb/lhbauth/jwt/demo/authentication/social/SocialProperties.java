@@ -1,6 +1,7 @@
 package com.lhb.lhbauth.jwt.demo.authentication.social;
 
 import com.lhb.lhbauth.jwt.demo.authentication.social.qq.QQProperties;
+import com.lhb.lhbauth.jwt.demo.authentication.social.wexin.WeixinProperties;
 import lombok.Data;
 
 /**
@@ -15,5 +16,5 @@ public class SocialProperties {
 
     private String filterProcessesUrl = "/auth";
 
-    //private WeixinProperties weixin = new WeixinProperties();
+    private WeixinProperties weixin = new WeixinProperties();
 }

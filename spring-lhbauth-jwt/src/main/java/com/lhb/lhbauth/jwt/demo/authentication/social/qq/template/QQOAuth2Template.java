@@ -26,6 +26,7 @@ public class QQOAuth2Template extends OAuth2Template {
 
     @Override
     protected AccessGrant postForAccessGrant(String accessTokenUrl, MultiValueMap<String, String> parameters) {
+        //发送获取token
         String responseStr = getRestTemplate().postForObject(accessTokenUrl, parameters, String.class);
 
         log.info("获取accessToke的响应："+responseStr);

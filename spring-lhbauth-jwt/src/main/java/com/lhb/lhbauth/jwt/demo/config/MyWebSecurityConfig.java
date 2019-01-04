@@ -38,6 +38,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     private SpringSocialConfigurer mySocialSecurityConfig;
     @Autowired
     private DataSource dataSource;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -90,7 +91,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable()
                 //短信验证码配置
                 .apply(smsCodeAuthenticationSecurityConfig)
-                //qq登录
+                //社交登录
                 .and().apply(mySocialSecurityConfig);
 
     }
