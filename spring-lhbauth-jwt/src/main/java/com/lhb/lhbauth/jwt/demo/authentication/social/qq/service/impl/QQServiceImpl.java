@@ -48,7 +48,8 @@ public class QQServiceImpl extends AbstractOAuth2ApiBinding implements QQService
         //发起请求
         String result = getRestTemplate().getForObject(url, String.class);
 
-        System.out.println(result);
+        log.info(result);
+        //System.out.println(result);
 
         //放进openId
         this.openId = StringUtils.substringBetween(result, "\"openid\":\"", "\"}");

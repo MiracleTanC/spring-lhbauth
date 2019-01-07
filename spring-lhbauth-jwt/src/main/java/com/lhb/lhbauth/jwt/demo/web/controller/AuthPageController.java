@@ -89,4 +89,10 @@ public class AuthPageController {
     }
 
 
+
+    @GetMapping("/social/binding")
+    public String binding(){
+        return "/demo-binding";
+    }
+
 }

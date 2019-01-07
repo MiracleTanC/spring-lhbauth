@@ -38,6 +38,6 @@ public class DemoConnectionSignUp implements ConnectionSignUp {
         //当改用户第一次注册没手机号，就提示用手机号绑定
 
 
-        return uin;
+        return connection.getDisplayName();
     }
 }

@@ -1,5 +1,6 @@
 package com.lhb.lhbauth.jwt.demo.authentication.social.wexin;
 
+import com.lhb.lhbauth.jwt.demo.authentication.social.MyConnectView;
 import com.lhb.lhbauth.jwt.demo.authentication.social.wexin.factory.WeixinConnectionFactory;
 import com.lhb.lhbauth.jwt.demo.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,9 @@ public class WeixinAutoConfiguration extends SocialAutoConfigurerAdapter {
                 weixinConfig.getAppSecret());
     }
 
-//    @Bean({"connect/weixinConnect", "connect/weixinConnected"})
-//    @ConditionalOnMissingBean(name = "weixinConnectedView")
-//    public View weixinConnectedView() {
-//        return new MyConnectView();
-//    }
+    @Bean({"connect/weixinConnect", "connect/weixinConnected"})
+    @ConditionalOnMissingBean(name = "weixinConnectedView")
+    public View weixinConnectedView() {
+        return new MyConnectView();
+    }
 }
