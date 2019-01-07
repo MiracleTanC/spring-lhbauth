@@ -42,3 +42,4 @@
 5. [spring oauth2实现手机号验证码登录](https://blog.csdn.net/baidu_34389984/article/details/85634264)。
 6. [spring oauth2 social实现QQ登录](https://blog.csdn.net/baidu_34389984/article/details/85716279)。
 7. [spring security 实现微信登录](https://blog.csdn.net/baidu_34389984/article/details/85778310)。
+8. [spring oauh2 social security实现社交账号绑定解绑](https://blog.csdn.net/baidu_34389984/article/details/86010373)。
