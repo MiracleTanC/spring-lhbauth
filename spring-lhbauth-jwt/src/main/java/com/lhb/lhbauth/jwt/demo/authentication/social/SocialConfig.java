@@ -35,8 +35,8 @@ public class SocialConfig extends SocialConfigurerAdapter {
     @Autowired(required = false)
     private ConnectionSignUp connectionSignUp;
 
-//    @Autowired(required = false)
-//    private SocialAuthenticationFilterPostProcessor socialAuthenticationFilterPostProcessor;
+    @Autowired(required = false)
+    private SocialAuthenticationFilterPostProcessor socialAuthenticationFilterPostProcessor;
 
 
     /**
@@ -69,7 +69,7 @@ public class SocialConfig extends SocialConfigurerAdapter {
         MySpringSocialConfigurer configurer = new MySpringSocialConfigurer(filterProcessesUrl);
         //配置注册页
         configurer.signupUrl("/defaultSignUp.html");
-        //configurer.setSocialAuthenticationFilterPostProcessor(socialAuthenticationFilterPostProcessor);
+        configurer.setSocialAuthenticationFilterPostProcessor(socialAuthenticationFilterPostProcessor);
         return configurer;
     }
 

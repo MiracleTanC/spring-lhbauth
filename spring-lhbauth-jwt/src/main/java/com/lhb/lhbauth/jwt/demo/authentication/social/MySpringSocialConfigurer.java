@@ -14,6 +14,8 @@ public class MySpringSocialConfigurer  extends SpringSocialConfigurer {
 
     private String filterProcessesUrl;
 
+    private SocialAuthenticationFilterPostProcessor socialAuthenticationFilterPostProcessor;
+
     MySpringSocialConfigurer(String filterProcessesUrl) {
         this.filterProcessesUrl = filterProcessesUrl;
     }
@@ -23,6 +25,10 @@ public class MySpringSocialConfigurer  extends SpringSocialConfigurer {
     protected <T> T postProcess(T object) {
         SocialAuthenticationFilter filter = (SocialAuthenticationFilter) super.postProcess(object);
         filter.setFilterProcessesUrl(filterProcessesUrl);
+
+        if(socialAuthenticationFilterPostProcessor != null){
+            socialAuthenticationFilterPostProcessor.process(filter);
+        }
 
         return (T) filter;
     }

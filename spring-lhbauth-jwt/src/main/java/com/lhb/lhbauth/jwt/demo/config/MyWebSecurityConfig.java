@@ -2,6 +2,7 @@ package com.lhb.lhbauth.jwt.demo.config;
 
 import com.lhb.lhbauth.jwt.demo.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import com.lhb.lhbauth.jwt.demo.authentication.mobile.SmsCodeFilter;
+import com.lhb.lhbauth.jwt.demo.authentication.openid.OpenIdAuthenticationConfig;
 import com.lhb.lhbauth.jwt.demo.cahe.redis.VcodeManager;
 import com.lhb.lhbauth.jwt.demo.constants.FromLoginConstant;
 import com.lhb.lhbauth.jwt.demo.properties.SecurityProperties;
@@ -34,6 +35,8 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     private VcodeManager vcodeManager;
     @Autowired
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+    @Autowired
+    private OpenIdAuthenticationConfig openIdAuthenticationConfig;
     @Autowired
     private SpringSocialConfigurer mySocialSecurityConfig;
     @Autowired
@@ -92,7 +95,9 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //短信验证码配置
                 .apply(smsCodeAuthenticationSecurityConfig)
                 //社交登录
-                .and().apply(mySocialSecurityConfig);
+                .and().apply(mySocialSecurityConfig)
+                //openID登录
+                .and().apply(openIdAuthenticationConfig);
 
     }
 
