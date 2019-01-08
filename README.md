@@ -46,3 +46,9 @@
 9. [spring oauth2 实现用户名密码登录、手机号验证码登录返回token](https://blog.csdn.net/baidu_34389984/article/details/86064111)。
 10. [spring oauth2 实现社交登录方式一返回token](https://blog.csdn.net/baidu_34389984/article/details/86084119)。
 11. [spring oauth2实现社交登录返回token](https://blog.csdn.net/baidu_34389984/article/details/86086052)。
+
+
+#### 个人博客
+
+https://blog.csdn.net/baidu_34389984
+
