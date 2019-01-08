@@ -44,3 +44,4 @@
 7. [spring security 实现微信登录](https://blog.csdn.net/baidu_34389984/article/details/85778310)。
 8. [spring oauh2 social security实现社交账号绑定解绑](https://blog.csdn.net/baidu_34389984/article/details/86010373)。
 9. [spring oauth2 实现用户名密码登录、手机号验证码登录返回token](https://blog.csdn.net/baidu_34389984/article/details/86064111)。
+10.[spring oauth2 实现社交登录方式一返回token](https://blog.csdn.net/baidu_34389984/article/details/86084119)。
