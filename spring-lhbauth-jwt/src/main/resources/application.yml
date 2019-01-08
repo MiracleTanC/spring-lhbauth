@@ -54,11 +54,11 @@ system:
       clientSecret: app
   social:
     qq:
-      app-id: 101492882
-      app-secret: 331a27395a82d54d53f9f55a33bde692
+      app-id: xxxx
+      app-secret: xxxx
       providerId: callback.do
 
     filterProcessesUrl: /qqLogin
     weixin:
-      app-id: wx8a47a66e22296c62
-      app-secret: deb57af7ec1753a2668889e74b34b789
+      app-id: xxx
+      app-secret: xxxx
