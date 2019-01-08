@@ -38,11 +38,9 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     private SpringSocialConfigurer mySocialSecurityConfig;
     @Autowired
     private DataSource dataSource;
+    @Autowired
+    private AuthenticationSuccessHandler myAuthenticationSuccessHandler;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 
 //    @Override
 //    @Bean
@@ -77,6 +75,8 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(smsCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 //表单登录,loginPage为登录请求的url,loginProcessingUrl为表单登录处理的URL
                 .formLogin().loginPage(FromLoginConstant.LOGIN_PAGE).loginProcessingUrl(FromLoginConstant.LOGIN_PROCESSING_URL)
+                //登录成功之后的处理
+                .successHandler(myAuthenticationSuccessHandler)
                 //允许访问
                 .and().authorizeRequests().antMatchers(
                 FromLoginConstant.LOGIN_PROCESSING_URL,
