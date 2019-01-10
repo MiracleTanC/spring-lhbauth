@@ -60,5 +60,5 @@ system:
 
     filterProcessesUrl: /qqLogin
     weixin:
-      app-id: xxx
-      app-secret: xxxx
+      app-id: xxxx
+      app-secret: xxxxx
