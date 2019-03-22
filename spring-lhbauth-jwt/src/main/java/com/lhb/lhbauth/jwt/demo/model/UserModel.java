@@ -21,7 +21,7 @@ import java.util.Collection;
  */
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "public", catalog = "tplhk_esale")
 @NoArgsConstructor
 @AllArgsConstructor
 @Slf4j
@@ -33,7 +33,6 @@ public class UserModel implements UserDetails {
     private String username;
     private String password;
     private String mobile;
-
 
 
     @Override

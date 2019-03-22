@@ -64,7 +64,8 @@ public class AuthPageController {
 
     @RequestMapping(FromLoginConstant.AFTER_LOGING_PAGE)
     public String login() {
-        return securityProperties.getOauthLogin().getOauthLogin();
+        return "oauthLogin";
+        //securityProperties.getOauthLogin().getOauthLogin();
     }
 
 
@@ -89,9 +90,8 @@ public class AuthPageController {
     }
 
 
-
     @GetMapping("/social/binding")
-    public String binding(){
+    public String binding() {
         return "/demo-binding";
     }
 

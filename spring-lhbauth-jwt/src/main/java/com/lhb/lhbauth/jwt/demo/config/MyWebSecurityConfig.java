@@ -87,7 +87,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 securityProperties.getOauthLogin().getOauthLogin(),
                 securityProperties.getOauthLogin().getOauthGrant(),
                 "/myLogout",
-                "/code/sms")
+                "/code/sms", "/getCode/get")
 //                "/oauth/**")
                 .permitAll().anyRequest().authenticated()
                 //禁用跨站伪造

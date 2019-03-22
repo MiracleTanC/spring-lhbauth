@@ -68,7 +68,6 @@ public class MyAuthorizationServerConfig  extends AuthorizationServerConfigurerA
     public void configure(final AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
         oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
         oauthServer.allowFormAuthenticationForClients();
-
     }
 
 
