@@ -13,9 +13,9 @@ spring:
      database: 3
   datasource:
       druid:
-          url: jdbc:postgresql://10.6.56.29:5432/tplhk_esale
-          username: thksales
-          password: Taiping@8888
+          url: jdbc:postgresql://127.0.0.1:5432/data
+          username: root
+          password: 123456
           driver-class-name: org.postgresql.Driver
           initial-size: 5
           min-idle: 6
